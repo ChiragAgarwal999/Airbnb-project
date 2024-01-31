@@ -81,7 +81,7 @@ app.use((req,res,next)=>{
 });
 
 app.use("https://delta-project-irq9.onrender.com",(req,res)=>{
-    res.redirect("/listings");
+    res.render("https://delta-project-irq9.onrender.com/listings");
 })
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
