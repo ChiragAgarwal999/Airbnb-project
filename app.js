@@ -28,18 +28,18 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 
-const dbUrl = process.env.ATLASDB_URL;
+const URI = process.env.ATLASDB_URL;
 
 main()
     .then((res)=>console.log("Connection To DB"))
     .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  await mongoose.connect(URI);
 }
 
 const store = MongoStore.create({
-    mongoUrl:dbUrl,
+    mongoUrl:URI,
     crypto:{
         secret:process.env.SECRET,
     },
