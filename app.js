@@ -80,7 +80,9 @@ app.use((req,res,next)=>{
     next();
 });
 
-
+app.use("https://delta-project-irq9.onrender.com",(req,res)=>{
+    res.redirect("/listings");
+})
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
